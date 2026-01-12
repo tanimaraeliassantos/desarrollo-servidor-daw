@@ -1,31 +1,24 @@
 package seguridad.security;
-import java.util.List;
+import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {
 	@Bean
-	public InMemoryUserDetailsManager usersdetails() throws Exception{
-		List<UserDetails> users=List.of(
-		User
-		.withUsername("user1")
-		//.password("$2a$12$YUq1fO2Vbz.ONbIo./xmBeGCYFr5m4OLNC8H9HFafn4fpcOnUbqda")
-		.password("{noop}user1")
-		.roles("USERS")
-		.build(),
-		User
-		.withUsername("user2")
-		.password("{noop}user2")
-		.roles("OPERATOR")
-		.build());
-	 
-		return new InMemoryUserDetailsManager(users);
+	UserDetailsManager usersCustom(DataSource dataSource) {
+		JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
+		users.setUsersByUsernameQuery("select username,password,enabled from Usuarios u where username=?");
+		users.setAuthoritiesByUsernameQuery("select u.username,p.nombre from Usuario_Perfiles up " +
+				"inner join usuarios u on u.username = up.username " +
+				"inner join perfiles p on p.id_perfil = up.id_perfil " +
+				"where u.username = ?");
+		return users;
+		
 	}
 }
