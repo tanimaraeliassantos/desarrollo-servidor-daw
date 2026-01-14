@@ -17,13 +17,10 @@ public class SecurityConfig {
 		.csrf(csrf -> csrf.disable())
 		.sessionManagement(ses -> ses.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 		.cors(Customizer.withDefaults())
-//		.authorizeHttpRequests(auth -> auth
-//				.requestMatchers("/error"), "/public/**").permitAll()
-//				.requestMatchers("/admin/**").hasRole("ADMON")
-//				.requestMatchers("/api/usuarios?**").authenticated()
-//				.anyRequest().authenticated()
-//		)
-		
+		.authorizeHttpRequests(auth -> auth
+				.requestMatchers("/login","/registro","/logout", "/").permitAll()
+				.requestMatchers("/saludar/**").hasRole("ADMON")
+				.anyRequest().authenticated())
 		.httpBasic(Customizer.withDefaults());
 		
 		return http.build();

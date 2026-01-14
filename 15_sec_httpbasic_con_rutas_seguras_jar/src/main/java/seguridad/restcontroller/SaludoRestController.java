@@ -23,7 +23,7 @@ public class SaludoRestController {
 	private UsuarioRepository usuarioRepository;
 	
 	@GetMapping("/hola")
-	public String hola(Authentication auth, HttpSession misesion) {
+	public String hola(Authentication auth) {
 		
 		/*
 		Usuario usuario = usuarioRepository.findById(auth.getName()).orElse(null);
@@ -37,7 +37,7 @@ public class SaludoRestController {
 	@GetMapping("/adios")
 	public String adios() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		return "Hasta la vista babe " + auth.getName() + " - " + auth.getDetails();
+		return "Hasta la vista babe " + auth.getName() + " - " + auth.isAuthenticated();
 	}
 	
 	@GetMapping("/logout")
