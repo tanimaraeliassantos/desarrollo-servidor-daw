@@ -12,4 +12,18 @@ ruta.get('/todos', (req, res) => {
 	res.status(200).send(coches);
 });
 
+ruta.get('/marca/:marca', (req, res) => {
+	let cochesBuscar = coches.filter((coche) => coche.marca === req.params.marca);
+	res.status(200).send(coches);
+});
+
+ruta.get('/:id', (req, res) => {
+	let coche = coches.find((coche) => coche._id == req.params.id);
+	if (!coche) {
+		res.status(404).send('Este coche no existe.');
+	} else {
+		res.status(200).send(coche);
+	}
+});
+
 module.exports = ruta;
