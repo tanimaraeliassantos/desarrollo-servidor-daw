@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "696cbf1e12b37ceae55917fb"
+  },
+  "conductorId": "696cbca312b37ceae55917ed",
+  "matricula": "1234-BBB",
+  "modelo": "Volvo FH16",
+  "capacidadKg": 20000,
+  "estado": "activo"
+}]

@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "696e478a60f800708571c30b"
+  },
+  "camionId": "CAMION_AZUL_01",
+  "mercanciaId": "696cbf9912b37ceae55917fe",
+  "fechaInscripcion": {
+    "$date": "2026-01-18T23:00:00.000Z"
+  },
+  "estado": "pendiente",
+  "_class": "seguridad.model.entity.Inscripcion"
+},
+{
+  "_id": {
+    "$oid": "696e97ac5917ed896c5b1666"
+  },
+  "camionId": "CAMION-001-XYZ",
+  "mercanciaId": "696cbf9912b37ceae55917ff",
+  "fechaInscripcion": {
+    "$date": "2026-01-18T23:00:00.000Z"
+  },
+  "estado": "RECHAZADA",
+  "_class": "seguridad.model.entity.Inscripcion"
+}]
