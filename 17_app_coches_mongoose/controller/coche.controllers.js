@@ -1,6 +1,6 @@
 const express = require('express');
 const ruta = express.Router();
-const Coche = require('../model/coche.model');
+const Coche = require('../model/coche.models');
 const coches = require('../bbdd/coches');
 
 const cargaInicial = async (req, res) => {
