@@ -9,7 +9,13 @@ class UsuarioController {
 		return res.status(201).send('Carga de usuarios completada.');
 	}
 
-	async findByUserNameAndPassword(req, res) {}
+	async findByUserNameAndPassword(req, res) {
+		const result = Usuario.findOne({
+			username: req.body.username,
+			password: req.body.password,
+		});
+		if (!result) return res.status(404).send('Usuario o password incorrecto');
+	}
 
 	async registrar(req, res) {}
 
