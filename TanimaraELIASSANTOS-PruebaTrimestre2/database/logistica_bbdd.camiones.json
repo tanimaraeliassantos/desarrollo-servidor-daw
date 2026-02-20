@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "696cbf1e12b37ceae55917fb"
+  },
+  "conductorId": "696e3ff160f800708571c2fe",
+  "matricula": "1234-BBB",
+  "modelo": "Volvo FH16",
+  "capacidadKg": 20000,
+  "estado": "activo",
+  "_class": "seguridad.model.entity.Camion"
+}]

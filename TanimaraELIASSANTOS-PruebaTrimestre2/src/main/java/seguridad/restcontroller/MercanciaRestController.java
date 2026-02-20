@@ -1,0 +1,64 @@
+package seguridad.restcontroller;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import seguridad.model.entity.Mercancia;
+import seguridad.model.service.IMercanciaService;
+
+@RestController
+@RequestMapping("/api/mercancias")
+public class MercanciaRestController {
+	
+	@Autowired
+	private IMercanciaService mercanciaService;
+	
+	@GetMapping("/disponibles")
+	public List<Mercancia> listarPendientes() {
+		return mercanciaService.listarPendientes();
+	}
+	
+	@GetMapping("/buscar")
+	public List<Mercancia> buscar(
+			@RequestParam(required = false) String origen,
+			@RequestParam(required = false) String destino,
+			@RequestParam(required = false) Double pesoMax) {
+		return mercanciaService.buscarPorFiltros(origen, destino, pesoMax);
+	}
+	
+	//Añadido para prueba trimestral
+	@GetMapping("/estadisticas/por-estado")
+	public ResponseEntity<Map<String, Long>> obtenerEstadisticasPorEstado() {
+		Map<String, Long> estadisticas = mercanciaService.obtenerEstadisticasPorEstado();
+		return ResponseEntity.ok(estadisticas);
+	}
+	
+	//Añadido para prueba trimestral
+	@GetMapping("/por-distancia")
+	public ResponseEntity<List<Mercancia>> buscarPorDistancia(
+			@RequestParam(required = false) Double distanciaMinima) {
+		List<Mercancia> resultados = mercanciaService.buscarPorDistanciaMinima(distanciaMinima);
+		return ResponseEntity.ok(resultados);
+	}
+	
+	
+	@PostMapping("/crear")
+	@PreAuthorize("hasAuthority('EMPRESA')")
+	public ResponseEntity<Mercancia> crear(@RequestBody Mercancia mercancia) {
+		Mercancia nueva = mercanciaService.guardar(mercancia);
+		return new ResponseEntity<>(nueva, HttpStatus.CREATED);
+	}
+		
+
+}
