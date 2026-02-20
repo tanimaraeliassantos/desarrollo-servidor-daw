@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "696e31308a40a729cd275df6"
+  },
+  "email": "empresa8@test.com",
+  "password": "{noop}1234",
+  "rol": "EMPRESA",
+  "_class": "seguridad.model.entity.Usuario"
+},
+{
+  "_id": {
+    "$oid": "696e3316ff3902b1cc48e591"
+  },
+  "email": "empresa6@test.com",
+  "password": "{noop}1234",
+  "rol": "CONDUCTOR",
+  "_class": "seguridad.model.entity.Usuario"
+},
+{
+  "_id": {
+    "$oid": "696e3ff160f800708571c2fe"
+  },
+  "email": "empresa9@test.com",
+  "password": "{noop}1234",
+  "rol": "CONDUCTOR",
+  "_class": "seguridad.model.entity.Usuario"
+}]
