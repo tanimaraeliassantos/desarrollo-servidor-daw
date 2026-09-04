@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "696cbf9912b37ceae55917fe"
+  },
+  "descripcion": "Caja de componentes electrónicos",
+  "origen": "Madrid",
+  "destino": "Barcelona",
+  "pesoKg": 500,
+  "fechaEntregaEstimada": {
+    "$date": "2026-02-14T23:00:00.000Z"
+  },
+  "estado": "pendiente",
+  "_class": "seguridad.model.entity.Mercancia"
+},
+{
+  "_id": {
+    "$oid": "696cbf9912b37ceae55917ff"
+  },
+  "descripcion": "Palets de pantallas usadas",
+  "origen": "Valencia",
+  "destino": "Sevilla",
+  "pesoKg": 2000,
+  "fechaEntregaEstimada": {
+    "$date": "2026-01-09T23:00:00.000Z"
+  },
+  "estado": "pendiente",
+  "_class": "seguridad.model.entity.Mercancia"
+},
+{
+  "_id": {
+    "$oid": "696e4ede55fdb992506b4c40"
+  },
+  "descripcion": "Repuestos industriales",
+  "origen": "Madrid",
+  "destino": "Bilbao",
+  "pesoKg": 1200,
+  "estado": "pendiente",
+  "_class": "seguridad.model.entity.Mercancia"
+},
+{
+  "_id": {
+    "$oid": "696e52b755fdb992506b4c46"
+  },
+  "descripcion": "Repuestos industriales",
+  "origen": "Madrid",
+  "destino": "Bilbao",
+  "pesoKg": 1200,
+  "estado": "pendiente",
+  "_class": "seguridad.model.entity.Mercancia"
+},
+{
+  "_id": {
+    "$oid": "696e967e5917ed896c5b1665"
+  },
+  "descripcion": "Carga de naranjas frescas",
+  "origen": "Madrid",
+  "destino": "Valencia",
+  "pesoKg": 2500,
+  "estado": "pendiente",
+  "_class": "seguridad.model.entity.Mercancia"
+}]
